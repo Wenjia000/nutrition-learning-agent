@@ -8,9 +8,7 @@ Original file is located at
 """
 
 import os
-
-print("ROOT DIR:", os.listdir("."))
-print("DATA DIR:", os.listdir("data"))
+import streamlit as st 
 import pandas as pd
 import random
 import numpy as np
@@ -21,8 +19,15 @@ from typing import TypedDict, Optional, List
 from langchain_openai import ChatOpenAI
 
 # load API key
-import os
-OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+if OPENAI_API_KEY == "":
+    st.error("OPENAI_API_KEY not found. Please set it in Streamlit Secrets.")
+    
+# load data
+BASE_DIR = os.path.dirname(__file__)
+CSV_PATH = os.path.join(BASE_DIR, "data", "USDA.csv")
+st.write("Reading CSV from:", CSV_PATH)
+df = pd.read_csv(CSV_PATH)
 
 # LLM setup
 llm = ChatOpenAI(
@@ -31,8 +36,9 @@ llm = ChatOpenAI(
     api_key=os.environ["OPENAI_API_KEY"]
 )
 
-# load data
-df = pd.read_csv(os.path.join(os.getcwd(), "data", "USDA.csv"))
+
+
+
 
 
 # make food name shorter
