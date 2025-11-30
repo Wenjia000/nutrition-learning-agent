@@ -1,0 +1,6 @@
+streamlit
+langgraph
+langchain-openai
+scikit-learn
+pandas
+numpy
