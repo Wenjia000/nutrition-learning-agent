@@ -32,7 +32,7 @@ llm = ChatOpenAI(
 )
 
 # load data
-df = pd.read_csv("data/USDA.csv")
+df = pd.read_csv(os.path.join(os.getcwd(), "data", "USDA.csv"))
 
 
 # make food name shorter
