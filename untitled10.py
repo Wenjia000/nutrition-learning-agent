@@ -24,6 +24,7 @@ if OPENAI_API_KEY == "":
     st.error("OPENAI_API_KEY not found. Please set it in Streamlit Secrets.")
     
 # load data
+CSV_PATH = "data/USDA.csv"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 csv_path = os.path.join(BASE_DIR, "data", "USDA.csv")
 st.write("Reading CSV from:", CSV_PATH)
