@@ -16,11 +16,10 @@ from sklearn.linear_model import LogisticRegression
 from langgraph.graph import StateGraph
 from typing import TypedDict, Optional, List
 from langchain_openai import ChatOpenAI
-import os
-from google.colab import drive, userdata
 
 # load API key
-os.environ["OPENAI_API_KEY"] = userdata.get("OPENAI_API_KEY")
+import os
+OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 
 # LLM setup
 llm = ChatOpenAI(
@@ -30,8 +29,7 @@ llm = ChatOpenAI(
 )
 
 # load data
-drive.mount('/content/drive')
-df = pd.read_csv('/content/drive/MyDrive/USDA.csv')
+df = pd.read_csv("data/USDA.csv")
 
 
 # make food name shorter
