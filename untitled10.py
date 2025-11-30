@@ -24,8 +24,8 @@ if OPENAI_API_KEY == "":
     st.error("OPENAI_API_KEY not found. Please set it in Streamlit Secrets.")
     
 # load data
-BASE_DIR = os.path.dirname(__file__)
-CSV_PATH = os.path.join(BASE_DIR, "data", "USDA.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(BASE_DIR, "data", "USDA.csv")
 st.write("Reading CSV from:", CSV_PATH)
 df = pd.read_csv(CSV_PATH)
 
@@ -35,10 +35,6 @@ llm = ChatOpenAI(
     temperature=0.7,
     api_key=os.environ["OPENAI_API_KEY"]
 )
-
-
-
-
 
 
 # make food name shorter
