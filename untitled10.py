@@ -7,7 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1A9JHfz_phT36L9sLux3UWBTi5GhcIjMq
 """
 
-!pip install -q langgraph langchain-openai scikit-learn
 
 import pandas as pd
 import random
