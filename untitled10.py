@@ -7,7 +7,10 @@ Original file is located at
     https://colab.research.google.com/drive/1A9JHfz_phT36L9sLux3UWBTi5GhcIjMq
 """
 
+import os
 
+print("ROOT DIR:", os.listdir("."))
+print("DATA DIR:", os.listdir("data"))
 import pandas as pd
 import random
 import numpy as np
